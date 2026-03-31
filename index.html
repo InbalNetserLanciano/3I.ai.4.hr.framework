@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3I Framework | Leading the AI Mindset Shift</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-purple: #500B75;
+            --brand-turquoise: #0BFCCE;
+            --brand-coral: #EE828C;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fdfdfd;
+            background-image: 
+                radial-gradient(circle at 2px 2px, rgba(80, 11, 117, 0.03) 1px, transparent 0);
+            background-size: 30px 30px;
+            color: #1e293b;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 24px;
+            box-shadow: 0 10px 40px -10px rgba(80, 11, 117, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--brand-turquoise);
+            color: #064e3b;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .btn-primary:not(:disabled):hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 25px -5px rgba(11, 252, 206, 0.4);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            box-shadow: none !important;
+            transform: none !important;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(80, 11, 117, 0.15);
+            color: var(--brand-purple);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(80, 11, 117, 0.05);
+            border-color: var(--brand-purple);
+            transform: translateY(-2px);
+        }
+
+        .accent-purple { color: var(--brand-purple); }
+        .bg-purple { background-color: var(--brand-purple); }
+        
+        .level-card {
+            transition: transform 0.3s ease;
+        }
+        .level-card:hover { transform: translateY(-5px); }
+
+        .checkbox-custom {
+            width: 22px;
+            height: 22px;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .checkbox-custom.checked {
+            background-color: var(--brand-turquoise);
+            border-color: var(--brand-turquoise);
+        }
+
+        .checkbox-custom.checked::after {
+            content: '✓';
+            color: #064e3b;
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--brand-turquoise), var(--brand-coral));
+            width: 0%;
+            transition: width 0.6s ease-in-out;
+        }
+
+        .hidden-form { display: none; opacity: 0; }
+        .show-form { display: block; opacity: 1; animation: fadeIn 0.6s ease-out; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Nav -->
+    <nav class="max-w-6xl mx-auto px-6 py-10 flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            <img src="לוגו רקע שקוף.png" alt="People Tech Consulting Solutions Logo" class="h-12 w-auto object-contain" style="max-width:180px;" />
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="max-w-5xl mx-auto px-6 pt-10 pb-20 text-center">
+        <div class="inline-block px-4 py-1.5 rounded-full bg-purple/5 text-purple-700 text-xs font-bold uppercase tracking-widest mb-8 border border-purple/10">
+            Exclusive White Paper Release
+        </div>
+        <h1 class="text-4xl md:text-6xl font-black text-slate-900 mb-8 leading-[1.15]">
+            From Tools to Transformation: <br/>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-900 via-purple-700 to-indigo-600">
+                Leading the AI Mindset Shift
+            </span>
+        </h1>
+        <p class="text-lg md:text-xl text-slate-500 max-w-3xl mx-auto mb-12 leading-relaxed">
+            We are entering the era of the <strong>Agentic Organization</strong>. HR's value is no longer in what it <em>does</em>, but in what it <em>delivers</em> to the enterprise architecture.
+        </p>
+        
+        <div class="flex flex-col items-center justify-center gap-6">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#audit" class="btn-primary px-10 py-4 rounded-full font-bold text-lg shadow-lg">
+                    Audit Your AI Readiness
+                </a>
+                <button onclick="showDirectForm()" class="btn-secondary px-10 py-4 rounded-full font-bold text-lg shadow-sm">
+                    Request PDF Directly
+                </button>
+            </div>
+            <span class="text-slate-400 text-sm font-medium">Based on the 2026 3I Framework for AI-Ready HR by Inbal Netser Lanciano</span>
+        </div>
+    </header>
+
+    <!-- The 3I Framework Detail -->
+    <section class="max-w-6xl mx-auto px-6 mb-32 grid md:grid-cols-3 gap-8">
+        <div class="level-card glass p-8 border-b-4 border-turquoise">
+            <div class="text-xs font-black text-slate-400 mb-4 tracking-tighter uppercase">Level 1 — Individual / Functional</div>
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--brand-purple)">IMPROVE</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Breaking the <strong>"Execution Ceiling"</strong>. Turning AI anxiety into agency by reducing time-to-output and raising the baseline of quality.</p>
+        </div>
+        <div class="level-card glass p-8 border-b-4 border-coral">
+            <div class="text-xs font-black text-slate-400 mb-4 tracking-tighter uppercase">Level 2 — Team / Departmental</div>
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--brand-purple)">INTEGRATE</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">The <strong>Process Integrity Audit</strong>. Crossing boundaries to rebuild workflows with agentic tools while defining "human-in-the-loop" necessity.</p>
+        </div>
+        <div class="level-card glass p-8 border-b-4 border-purple">
+            <div class="text-xs font-black text-slate-400 mb-4 tracking-tighter uppercase">Level 3 — Organizational / Strategic</div>
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--brand-purple)">IMPACT</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Architecting the Response. Redesigning performance management and leading change through the <strong>SHINE Framework</strong>.</p>
+        </div>
+    </section>
+
+    <!-- Interactive Quiz -->
+    <section id="audit" class="max-w-4xl mx-auto px-6 mb-32">
+        <div class="glass p-8 md:p-14 relative overflow-hidden">
+            <div class="relative z-10">
+                <h2 class="text-3xl font-black text-slate-900 mb-2">The 3I Readiness Audit</h2>
+                <p class="text-slate-500 mb-10">Self-assess your HR function's position in the agentic era.</p>
+                
+                <div class="mb-12">
+                    <div class="flex justify-between items-end mb-3">
+                        <span class="text-[10px] font-black tracking-widest text-slate-400 uppercase">Assessment Progress</span>
+                        <span id="progress-text" class="text-sm font-bold accent-purple">0% Complete</span>
+                    </div>
+                    <div class="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                </div>
+
+                <div class="space-y-16">
+                    <!-- Section I1 -->
+                    <div>
+                        <div class="flex items-center space-x-3 mb-8">
+                            <span class="px-2 py-0.5 rounded bg-turquoise/20 text-emerald-700 text-[10px] font-black tracking-widest uppercase">Stage I1</span>
+                            <h4 class="text-xl font-bold">Individual / Functional Foundation</h4>
+                        </div>
+                        <div class="grid gap-6">
+                            <label class="flex items-start gap-4 cursor-pointer group">
+                                <div class="checkbox-custom mt-1"></div>
+                                <div class="text-slate-600 group-hover:text-slate-900 transition-colors">I use AI templates to eliminate the "execution ceiling" in my daily HR production.</div>
+                            </label>
+                            <label class="flex items-start gap-4 cursor-pointer group">
+                                <div class="checkbox-custom mt-1"></div>
+                                <div class="text-slate-600 group-hover:text-slate-900 transition-colors">We provide "sandboxes" and champion communities to normalize hands-on experimentation.</div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Section I2 -->
+                    <div>
+                        <div class="flex items-center space-x-3 mb-8">
+                            <span class="px-2 py-0.5 rounded bg-coral/20 text-rose-700 text-[10px] font-black tracking-widest uppercase">Stage I2</span>
+                            <h4 class="text-xl font-bold">Team / Departmental Integration</h4>
+                        </div>
+                        <div class="grid gap-6">
+                            <label class="flex items-start gap-4 cursor-pointer group">
+                                <div class="checkbox-custom mt-1"></div>
+                                <div class="text-slate-600 group-hover:text-slate-900 transition-colors">We have conducted a Process Integrity Audit to question "habit" vs. "actual need."</div>
+                            </label>
+                            <label class="flex items-start gap-4 cursor-pointer group">
+                                <div class="checkbox-custom mt-1"></div>
+                                <div class="text-slate-600 group-hover:text-slate-900 transition-colors">HR convenes the cross-departmental spaces where teams redesign their own processes.</div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Section I3 -->
+                    <div>
+                        <div class="flex items-center space-x-3 mb-8">
+                            <span class="px-2 py-0.5 rounded bg-purple/10 text-purple-700 text-[10px] font-black tracking-widest uppercase">Stage I3</span>
+                            <h4 class="text-xl font-bold">Organizational / Strategic Impact</h4>
+                        </div>
+                        <div class="grid gap-6">
+                            <label class="flex items-start gap-4 cursor-pointer group">
+                                <div class="checkbox-custom mt-1"></div>
+                                <div class="text-slate-600 group-hover:text-slate-900 transition-colors">We are redesigning performance management specifically for hybrid human-agent teams.</div>
+                            </label>
+                            <label class="flex items-start gap-4 cursor-pointer group">
+                                <div class="checkbox-custom mt-1"></div>
+                                <div class="text-slate-600 group-hover:text-slate-900 transition-colors">We help leadership ask: "What is our core business with AI? What still belongs to humans?"</div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-20 text-center">
+                    <button id="show-result-btn" class="btn-primary px-16 py-5 rounded-full font-black text-lg opacity-40 cursor-not-allowed">
+                        Calculate My 3I Maturity
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Result / Registration Form -->
+        <div id="registration-form" class="hidden-form mt-12">
+            <div class="glass p-10 md:p-14 border-2 border-turquoise">
+                <div class="grid md:grid-cols-2 gap-16">
+                    <div>
+                        <h3 class="text-3xl font-black mb-6 leading-tight" id="diagnosis-header">Your Diagnosis: <br/><span id="current-level-tag" class="text-purple-700 uppercase">Analyzing...</span></h3>
+                        <p class="text-slate-600 mb-8 leading-relaxed font-medium" id="diagnosis-text">
+                            Your audit indicates you are at a critical inflection point. Moving to the next levels requires more than tool adoption—it requires a mindset shift. 
+                        </p>
+                    </div>
+                    <div>
+                        <div class="mb-8 text-center md:text-left">
+                            <h4 class="text-xl font-black mb-2 accent-purple">Access the Complete 3I Framework</h4>
+                            <p class="text-sm text-slate-500 font-medium italic">Master the full strategic model and implementation roadmap.</p>
+                        </div>
+                        <form onsubmit="handleFormSubmit(event)" class="space-y-5">
+                            <input type="text" id="user-name" required placeholder="Full Name" oninput="toggleRequestButton()" class="w-full px-5 py-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-purple-200 focus:outline-none transition-all">
+                            <input type="email" id="user-email" required placeholder="Work Email" oninput="toggleRequestButton()" class="w-full px-5 py-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-purple-200 focus:outline-none transition-all">
+                            <div class="py-2">
+                                <label class="flex items-start gap-3 cursor-pointer">
+                                    <input type="checkbox" id="consent-checkbox" required class="mt-1" onchange="toggleRequestButton()">
+                                    <span class="text-[11px] text-slate-400 font-semibold leading-normal">
+                                        I consent to receive periodic strategic insights on AI-driven organizational evolution and People Tech updates.
+                                    </span>
+                                </label>
+                            </div>
+                            <button type="submit" id="request-paper-btn" disabled class="w-full btn-primary py-5 rounded-full font-black text-lg uppercase tracking-widest shadow-lg">
+                                Request White Paper (PDF)
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Author Profile -->
+    <section id="about" class="max-w-4xl mx-auto px-6 mb-32 border-t border-slate-100 pt-24">
+        <div class="flex flex-col md:flex-row gap-12 items-center">
+            <div class="w-48 h-48 flex-shrink-0">
+                 <img src="me in a circle.png" alt="Inbal Netser Lanciano" class="w-full h-full object-cover" />
+            </div>
+            <div>
+                <h2 class="text-3xl font-black mb-2">Inbal Netser Lanciano</h2>
+                <p class="text-sm font-bold tracking-widest text-slate-400 uppercase mb-6">Founder, People Tech Consulting Solutions</p>
+                <div class="text-slate-500 space-y-4 text-sm leading-relaxed font-medium">
+                    <p>Inbal is an Al-Based Organizational Solutions Architect & Consultant with an M.Sc. in Organizational Consulting from Tel Aviv University.</p>
+                    <p>Over the past three years, I have facilitated workshops and training programs for diverse organizations, specializing in AI tool enablement, the agentic mindset, and AI transformation change management. This hands-on field experience led directly to the creation of the 3I Framework—a comprehensive model that empowers HR leaders and managers to lead the full scope of AI implementation and organizational change.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-slate-50 text-center">
+        <p class="text-[10px] font-black text-slate-300 uppercase tracking-[0.3em]">© 2026 People Tech Consulting Solutions | Inbal Netser Lanciano</p>
+    </footer>
+
+    <script>
+        const checks = document.querySelectorAll('.checkbox-custom');
+        const fill = document.getElementById('progress-fill');
+        const text = document.getElementById('progress-text');
+        const btn = document.getElementById('show-result-btn');
+        const form = document.getElementById('registration-form');
+        const tag = document.getElementById('current-level-tag');
+        const diagText = document.getElementById('diagnosis-text');
+        const consentCheckbox = document.getElementById('consent-checkbox');
+        const requestPaperBtn = document.getElementById('request-paper-btn');
+        const userNameInput = document.getElementById('user-name');
+        const userEmailInput = document.getElementById('user-email');
+
+        checks.forEach(c => {
+            c.addEventListener('click', () => {
+                c.classList.toggle('checked');
+                const checked = document.querySelectorAll('.checkbox-custom.checked').length;
+                const pct = Math.round((checked / checks.length) * 100);
+                fill.style.width = pct + '%';
+                text.innerText = pct + '% Complete';
+                
+                if(checked >= 1) {
+                    btn.classList.remove('opacity-40', 'cursor-not-allowed');
+                } else {
+                    btn.classList.add('opacity-40', 'cursor-not-allowed');
+                }
+            });
+        });
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        function toggleRequestButton() {
+            const name = userNameInput.value.trim();
+            const email = userEmailInput.value.trim();
+            const consent = consentCheckbox.checked;
+            
+            // Validate email format and field completion
+            const isEmailValid = validateEmail(email);
+            
+            requestPaperBtn.disabled = !(name.length > 0 && isEmailValid && consent);
+        }
+
+        function showDirectForm() {
+            tag.innerText = "Strategic Access Request";
+            diagText.innerText = "Skip the audit and download the full 3I Strategic White Paper. Enter your details below to receive the definitive roadmap for AI-Ready HR.";
+            form.classList.add('show-form');
+            form.scrollIntoView({behavior:'smooth', block:'center'});
+        }
+
+        btn.addEventListener('click', () => {
+            const checked = document.querySelectorAll('.checkbox-custom.checked').length;
+            if(checked < 1) return;
+            
+            if(checked <= 2) {
+                tag.innerText = "Level 1: Improve / Functional";
+                diagText.innerText = "Your audit indicates you are at a critical inflection point. Moving to the next levels requires more than tool adoption—it requires mindset shift. Fill your details and receive the full 3I Framework for AI-Ready HR outlined in the white paper.";
+            } else if (checked <= 4) {
+                tag.innerText = "Level 2: Integrate / Departmental";
+                diagText.innerText = "Your audit indicates you are implementing AI process across your organization. Moving to the next level requires more than tool adoption and Integration, it requires Strategic mindset shift. Fill your details and receive the full 3I Framework for AI-Ready HR outlined in the white paper.";
+            } else {
+                tag.innerText = "Level 3: Impact / Strategic";
+                diagText.innerText = "Your audit indicates you are implementing AI process across your organization and working on Strategic Impact! For further tips about maintaining the AI mindset fill your details and receive the full 3I Framework for AI-Ready HR outlined in the white paper.";
+            }
+            
+            form.classList.add('show-form');
+            form.scrollIntoView({behavior:'smooth', block:'center'});
+        });
+
+        const SUPABASE_PROJECT = 'xcbxtggyodcusoxrlrbo';
+        const EDGE_FUNCTION_URL = `https://${SUPABASE_PROJECT}.supabase.co/functions/v1/send-whitepaper`;
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhjYnh0Z2d5b2RjdXNveHJscmJvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQxNzc5MjIsImV4cCI6MjA4OTc1MzkyMn0.Qg9cr7aEuwZGnPRrlex_3BtEnE4W0-cOTvt4DWjgdmU';
+
+        async function handleFormSubmit(e) {
+            e.preventDefault();
+            const b = e.target.querySelector('button');
+            const form = e.target;
+            const name = document.getElementById('user-name').value.trim();
+            const email = document.getElementById('user-email').value.trim();
+            const level = document.getElementById('current-level-tag').innerText;
+
+            b.innerText = "SENDING REQUEST...";
+            b.disabled = true;
+
+            try {
+                const res = await fetch(EDGE_FUNCTION_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                    },
+                    body: JSON.stringify({ name, email, level }),
+                });
+
+                if (!res.ok) throw new Error('Request failed');
+
+                form.innerHTML = `
+                    <div class="text-center py-10">
+                        <div class="w-16 h-16 bg-turquoise/20 rounded-full flex items-center justify-center mx-auto mb-6 text-emerald-600 font-bold text-2xl">✓</div>
+                        <h4 class="text-xl font-bold mb-2">Check Your Inbox!</h4>
+                        <p class="text-sm text-slate-500 font-medium">The 3I Strategic White Paper has been sent to <strong>${email}</strong>.</p>
+                    </div>
+                `;
+            } catch (err) {
+                b.innerText = "REQUEST WHITE PAPER (PDF)";
+                b.disabled = false;
+                alert("Something went wrong. Please try again.");
+            }
+        }
+    </script>
+</body>
+</html>
